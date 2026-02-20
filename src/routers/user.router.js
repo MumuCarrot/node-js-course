@@ -3,6 +3,10 @@ import { userRepository } from '../repositories/users.repository.js';
 
 const router = express.Router();
 
+router.get('/users', (request, response) => {
+   return response.redirect('/users/1/10');
+});
+
 router.get('/users/:page/:limit', async (request, response) => {
    let { page, limit } = request.params;
 
