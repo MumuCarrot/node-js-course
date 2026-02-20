@@ -4,11 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "server": "node src/index.js",
+        "migration:generate": "drizzle-kit generate",
+        "migration:push": "drizzle-kit push"
     },
     "author": "maksym bychok",
     "license": "ISC",
     "dependencies": {
-        "express": "^5.1.0"
+        "drizzle-kit": "^0.31.9",
+        "drizzle-orm": "^0.45.1",
+        "express": "^5.1.0",
+        "pg": "^8.18.0"
     }
 }
