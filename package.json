@@ -1,20 +1,24 @@
 {
     "name": "nodejs-course",
     "version": "1.0.0",
+    "type": "module",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "server": "node src/index.js",
+        "server": "node --watch src/index.js",
         "migration:generate": "drizzle-kit generate",
         "migration:push": "drizzle-kit push"
     },
     "author": "maksym bychok",
     "license": "ISC",
     "dependencies": {
-        "drizzle-kit": "^0.31.9",
+        "body-parser": "^2.2.2",
         "drizzle-orm": "^0.45.1",
         "express": "^5.1.0",
         "pg": "^8.18.0"
+    },
+    "devDependencies": {
+        "drizzle-kit": "^0.31.9"
     }
 }
