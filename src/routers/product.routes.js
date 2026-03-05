@@ -3,6 +3,10 @@ import { productsRepository } from '../repositories/products.repository.js';
 
 const router = express.Router();
 
+router.get('/products', (request, response) => {
+   return response.redirect('/products/1/10');
+});
+
 router.get('/products/:page/:limit', async (request, response) => {
    let { page, limit } = request.params;
 
@@ -25,8 +29,8 @@ router.get('/product/:id', async (request, response) => {
 });
 
 router.post('/product', async (request, response) => {
-   const { name, brand } = request.body;
-   const product = await productsRepository.create({ name, brand });
+   const { name, brand, userId } = request.body;
+   const product = await productsRepository.create({ name, brand, userId });
    return response.json({ route: '/products', product });
 });
 
