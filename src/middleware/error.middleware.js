@@ -1,5 +1,8 @@
 export const errorResponder = (err, request, response, next) => {
     response.header("Content-Type", 'application/json')
 
-    response.status(err.statusCode).send(err.message)
+    const statusCode = err.statusCode || err.status || 500;
+    const message = err.message || 'Internal Server Error';
+
+    response.status(statusCode).send(message)
 }

@@ -1,5 +1,6 @@
 import express from 'express';
 import { userRepository } from '../repositories/users.repository.js';
+import { productsRepository } from '../repositories/products.repository.js';
 
 const router = express.Router();
 
