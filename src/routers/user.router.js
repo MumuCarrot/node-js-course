@@ -1,5 +1,6 @@
 import express from 'express';
 import { userRepository } from '../repositories/users.repository.js';
+import { productsRepository } from '../repositories/products.repository.js';
 
 const router = express.Router();
 
@@ -45,6 +46,12 @@ router.delete('/user/:id', async (request, response) => {
    const { id } = request.params;
    const user = await userRepository.delete(parseInt(id));
    return response.json({ route: '/users', user });
+});
+
+router.get('/user/:id/products', async (request, response) => {
+   const { id } = request.params;
+   const products = await productsRepository.getByUserId(parseInt(id));
+   return response.json({ route: '/users', products });
 });
 
 export default router;
