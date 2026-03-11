@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Client } from 'pg';
-import * as schema from './schema';
+import * as schema from '../schemas/index.js';
 
 const client = new Client({
    host: '127.0.0.1',
@@ -11,4 +11,4 @@ const client = new Client({
 });
 
 await client.connect();
-export const db = drizzle(client, { schema });
+export const session = drizzle(client, { schema });
